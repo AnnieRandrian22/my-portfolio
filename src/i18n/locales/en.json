@@ -157,9 +157,7 @@
       "description": "Modern personal portfolio with 3D animations and multilingual support.",
       "fullDescription": "Professional portfolio showcasing my skills and projects. Integrates Three.js for immersive 3D animations, i18n for multilingual support (French/English/Malagasy), and an elegant interface developed with React TypeScript and Vite. Responsive design and smooth animations.",
       "images": {
-        "photo-1467232004584-a241de8bcf5d": "Homepage with 3D animation",
-        "photo-1499951360447-b19be8fe80f5": "Projects and skills section",
-        "photo-1432888498266-38ffec3eaf0a": "Multilingual interface with i18n"
+        "home_page": "Portfolio home page"
       }
     },
     "facebookClone": {

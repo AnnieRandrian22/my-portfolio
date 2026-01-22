@@ -79,18 +79,11 @@ const Projects = () => {
 
   // Détection d'appareil lent (Android avec peu de RAM)
   const isLowEndDevice = useMemo(() => {
-    const connection = (navigator as any).connection;
     const deviceMemory = (navigator as any).deviceMemory;
-
-    // Vérifier la connexion réseau lente ou la mémoire faible
-    const isSlowConnection = connection &&
-      (connection.effectiveType === 'slow-2g' ||
-       connection.effectiveType === '2g' ||
-       connection.downlink < 1.5);
 
     const isLowMemory = deviceMemory && deviceMemory < 4;
 
-    return isSlowConnection || isLowMemory || /Android.*Chrome/.test(navigator.userAgent);
+    return isLowMemory || /Android.*Chrome/.test(navigator.userAgent);
   }, []);
 
   // Mémoïser les traductions pour éviter les recalculs

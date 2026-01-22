@@ -155,11 +155,9 @@
     "portfolio": {
       "title": "Portfolio Personnel",
       "description": "Portfolio personnel moderne avec animations 3D et support multilingue.",
-      "fullDescription": "Portfolio professionnel présentant mes compétences et projets. Intègre Three.js pour des animations 3D immersives, i18n pour le support multilingue (français/anglais/malgache), et une interface élégante développée avec React TypeScript et Vite. Design responsive et animations fluides.",
+      "fullDescription": "Portfolio professionnel présentant mes compétences et projets. Intègre Three.js pour des animations 3D immersives, i18n pour le support bilingue (français/anglais), et une interface élégante développée avec React TypeScript et Vite. Design responsive et animations fluides.",
       "images": {
-        "photo-1467232004584-a241de8bcf5d": "Page d'accueil avec animation 3D",
-        "photo-1499951360447-b19be8fe80f5": "Section projets et compétences",
-        "photo-1432888498266-38ffec3eaf0a": "Interface multilingue avec i18n"
+        "photo-1467232004584-a241de8bcf5d": "Page d'accueil du portfolio"
       }
     },
     "facebookClone": {
