@@ -5,5 +5,7 @@ import App from "./app/App.tsx";
 import "./i18n/config";
 
 createRoot(document.getElementById("root")!).render(
-    <App />
+    <StrictMode>
+        <App />
+    </StrictMode >
 );

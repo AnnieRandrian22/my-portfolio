@@ -12,7 +12,7 @@ import { AppLoader } from "./AppLoader";
 import { LanguageProvider } from "../shared/context/LanguageContext";
 
 function App() {
-  const [isLoaded, setIsLoaded] = useState(true);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   return (
     <LanguageProvider>
