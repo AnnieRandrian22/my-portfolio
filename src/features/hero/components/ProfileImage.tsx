@@ -77,7 +77,7 @@ export const ProfileImage: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-primary opacity-20" />
         
         <img 
-          src="/src/assets/images/Profile_picture.png" 
+          src="images/Profile_picture.png" 
           alt="Randrianantenaina Malalatiana Annie Christelle" 
           className="w-full h-full transform scale-110 object-cover"
         />
