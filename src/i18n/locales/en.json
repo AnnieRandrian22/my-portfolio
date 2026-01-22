@@ -1,0 +1,208 @@
+{
+  "nav": {
+    "home": "Home",
+    "skills": "Skills",
+    "projects": "Projects",
+    "awards": "Achievements & Awards",
+    "experience": "Experience",
+    "education": "Education",
+    "contact": "Contact"
+  },
+  "hero": {
+    "welcome": "Welcome to my portfolio",
+    "IAm": "I am",
+    "heroDescription": "Frontend developer passionate about building modern, fast and responsive web interfaces. I turn ideas into clean, scalable and user-friendly experiences.",
+    "titles": [
+      "JavaScript & TypeScript Developer",
+      "React & Angular Developer"
+    ],
+    "subtitle": "Building exceptional digital experiences",
+    "cta": "Get In Touch"
+  },
+  "skills": {
+    "title": "Skills",
+    "subtitle": "Technologies and tools I master",
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "tools": "Tools & DevOps",
+      "languages": "Languages"
+    },
+    "highlights": {
+      "title": "Highlights",
+      "modernUI": {
+        "title": "Modern User Interfaces",
+        "description": "Creating smooth and intuitive user experiences"
+      },
+      "performance": {
+        "title": "Optimized Performance",
+        "description": "Fast applications with excellent Core Web Vitals"
+      },
+      "maintainableCode": {
+        "title": "Maintainable Code",
+        "description": "Scalable architecture and automated testing"
+      }
+    }
+  },
+  "awards": {
+    "title": "Achievements & Awards",
+    "subtitle": "Recognition and milestones in my journey"
+  },
+  "experience": {
+    "title": "Experience",
+    "subtitle": "My professional journey",
+    "madatlas": {
+      "title": "Cartography and Geospatial Analysis Internship",
+      "description": "Cartography and geospatial analysis of mobility and transport flows around the Andrainjato university campus for a secondary centrality",
+      "skills": {
+        "qgis": "QGis",
+        "postgis": "PostGis"
+      }
+    },
+    "innovt": {
+      "title": "Frontend Developer Internship",
+      "description": "Design and development of a customizable hotel management platform named HMS",
+      "skills": {
+        "angular": "Angular",
+        "typescript": "TypeScript",
+        "i18n": "i18n",
+        "stripe": "Stripe"
+      }
+    },
+    "arato": {
+      "title": "Angular Developer Internship",
+      "description": "Design and development of a grower tracking management application for Qimpexx Agri Sarl company",
+      "skills": {
+        "angular": "Angular",
+        "materialui": "Material Ui",
+        "laravel": "Laravel"
+      }
+    }
+  },
+  "education": {
+    "title": "Education",
+    "subtitle": "My academic background",
+    "master": {
+      "title": "Master in Computer Science",
+      "description": "Geospatial Engineering and Information Technology",
+      "highlights": {
+        "emihack": "Participation in Emihack 3.0",
+        "internship": "6-month internship at Madatlas"
+      },
+      "skills": {
+        "geospatial": "Geospatial Engineering",
+        "it": "Information Technology",
+        "programming": "Programming"
+      }
+    },
+    "bachelor": {
+      "title": "Bachelor in Computer Science",
+      "description": "Internet and Intranet Application Development",
+      "skills": {
+        "javascript": "JavaScript",
+        "python": "Python",
+        "database": "Database"
+      }
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "A selection of my work",
+    "viewDetails": "View Details",
+    "viewCode": "View Code",
+    "liveDemo": "Live Demo",
+    "allProjects": "All Projects",
+    "backToList": "Back to List",
+    "professional": "Professional",
+    "personal": "Personal",
+    "viewAll": "View All",
+    "moreTags": "more",
+    "hotelManagement": {
+      "title": "Hotel Management System",
+      "description": "Complete multi-site hotel management system with landing page, admin interface and super-admin.",
+      "fullDescription": "Complete hotel management platform consisting of three distinct Angular 18 applications: (1) Landing page to present the solution to potential hotels, (2) Admin interface allowing hotels to customize their site (colors, menu, contact) and manage their bookings, (3) Public site for each hotel with reservation system integrating Stripe for payments, (4) Super-admin to manage all hotels using the platform. Modular architecture with dynamic variables for complete customization of each hotel site.",
+      "images": {
+        "hotel_home_page": "Hotel website homepage",
+        "booking_page": "Room booking page",
+        "stripe_payment": "Stripe payment interface",
+        "admin_login_page": "Admin authentication page"
+      }
+    },
+    "innovtLearning": {
+      "title": "InnovT Learning Hub",
+      "description": "Online registration platform for training courses offered by InnovT Madagascar.",
+      "fullDescription": "Modern website allowing users to easily register for the various training courses offered by InnovT Madagascar. Google authentication integration for smooth and secure user experience. Responsive and intuitive interface developed with React and Vite.",
+      "images": {
+        "home_page": "Homepage with training catalog",
+        "formation_page": "Training list with multiple filters",
+        "signin_form": "Google authentication system",
+        "formation_detail": "Training detail page"
+      }
+    },
+    "qimpexxAgri": {
+      "title": "Qimpexx Agri - Grower Tracking",
+      "description": "Web application for managing and tracking growers and plantations for Qimpexx Agri SARL.",
+      "fullDescription": "Design and development of an agricultural tracking application to manage growers, their lands, seedling requests and planting follow-up. The application also integrates a follow-up questionnaire system, as well as Excel data import and information export in Excel/CSV/PDF format. Completed during an internship at ARATO Fianarantsoa IT services company.",
+      "images": {
+        "user_form": "User add/edit form",
+        "planter_filter": "Plantation tracking and questionnaires",
+        "plantation_detail": "Plantation control detail"
+      }
+    },
+    "portfolio": {
+      "title": "Personal Portfolio",
+      "description": "Modern personal portfolio with 3D animations and multilingual support.",
+      "fullDescription": "Professional portfolio showcasing my skills and projects. Integrates Three.js for immersive 3D animations, i18n for multilingual support (French/English/Malagasy), and an elegant interface developed with React TypeScript and Vite. Responsive design and smooth animations.",
+      "images": {
+        "photo-1467232004584-a241de8bcf5d": "Homepage with 3D animation",
+        "photo-1499951360447-b19be8fe80f5": "Projects and skills section",
+        "photo-1432888498266-38ffec3eaf0a": "Multilingual interface with i18n"
+      }
+    },
+    "facebookClone": {
+      "title": "Facebook Homepage Clone",
+      "description": "Facebook homepage reproduction using HTML, CSS and vanilla JavaScript.",
+      "fullDescription": "Personal project reproducing Facebook's homepage. This project demonstrates mastery of web development fundamentals: HTML5 for structure, CSS3 for styling and animations, and vanilla JavaScript for interactions. Responsive design and attention to detail.",
+      "images": {
+        "photo-1611162617474-5b21e879e113": "Facebook login interface",
+        "photo-1633356122544-f134324a6cee": "Responsive design and animations",
+        "photo-1432888498266-38ffec3eaf0a": "JavaScript interactions"
+      }
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Got a project idea? Let's discuss it together",
+    "stayInTouch": "Stay In Touch",
+    "description": "I'm always open to new opportunities and collaborations. Feel free to reach out to discuss your projects.",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "submit": "Send Message",
+      "sending": "Sending...",
+      "success": "Message sent successfully!",
+      "error": "Error sending message. Please try again."
+    },
+    "info": {
+      "email": "Email",
+      "phone": "Phone",
+      "location": "Location",
+      "available": "Available for freelance projects"
+    }
+  },
+  "footer": {
+    "copyright": "All rights reserved",
+    "followMe": "Follow me on social media",
+    "bacToTop": "Back to Top",
+    "description": "Frontend Developer passionate about creating modern, responsive and performant user interfaces with React, TypeScript and the latest web technologies.",
+    "builtWith": "Built with ❤️ and React + TypeScript"
+  },
+  "common": {
+    "language": "Language",
+    "theme": "Theme",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success"
+  }
+}

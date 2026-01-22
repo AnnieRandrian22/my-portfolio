@@ -1,0 +1,208 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "skills": "Compétences",
+    "projects": "Projets",
+    "awards": "Réalisations & Récompenses",
+    "experience": "Expérience",
+    "education": "Formation",
+    "contact": "Contact"
+  },
+  "hero": {
+    "welcome": "Bienvenue sur mon portfolio",
+    "IAm": "Je suis",
+    "heroDescription": "Développeur frontend passionné par la création d’interfaces web modernes, rapides et responsives. Je transforme des idées en expériences propres, évolutives et agréables à utiliser.",
+    "titles": [
+      "Développeur JavaScript & TypeScript",
+      "Développeur React & Angular"
+    ],
+    "subtitle": "Créer des expériences numériques exceptionnelles",
+    "cta": "Me Contacter"
+  },
+  "skills": {
+    "title": "Compétences",
+    "subtitle": "Technologies et outils que je maîtrise",
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "tools": "Outils & DevOps",
+      "languages": "Langages"
+    },
+     "highlights": {
+      "title": "Points Forts",
+      "modernUI": {
+        "title": "Interfaces utilisateur modernes",
+        "description": "Création d'expériences utilisateur fluides et intuitives"
+      },
+      "performance": {
+        "title": "Performance optimisée",
+        "description": "Applications rapides avec Core Web Vitals excellents"
+      },
+      "maintainableCode": {
+        "title": "Code maintenable",
+        "description": "Architecture scalable et tests automatisés"
+      }
+    }
+  },
+  "awards": {
+    "title": "Réalisations & Récompenses",
+    "subtitle": "Reconnaissances et jalons de mon parcours"
+  },
+  "experience": {
+    "title": "Expérience",
+    "subtitle": "Mon parcours professionnel",
+    "madatlas": {
+      "title": "Stage de cartographie et analyse géospatiale",
+      "description": "Cartographie et analyse géospatiale de la mobilité et des flux de transport autour du campus universitaire Andrainjato pour une centralité secondaire",
+      "skills": {
+        "qgis": "QGis",
+        "postgis": "PostGis"
+      }
+    },
+    "innovt": {
+      "title": "Stage Développeur Frontend",
+      "description": "Conception et réalisation d'une plateforme de gestion d'hôtel personnalisable nommé HMS",
+      "skills": {
+        "angular": "Angular",
+        "typescript": "TypeScript",
+        "i18n": "i18n",
+        "stripe": "Stripe"
+      }
+    },
+    "arato": {
+      "title": "Stage Développeur Angular",
+      "description": "Conception et réalisation d'une application de gestion de suivi de planteurs de l'entreprise Qimpexx Agri Sarl",
+      "skills": {
+        "angular": "Angular",
+        "materialui": "Material Ui",
+        "laravel": "Laravel"
+      }
+    }
+  },
+  "education": {
+    "title": "Formation",
+    "subtitle": "Mes études et formations",
+    "master": {
+      "title": "Master en Informatique",
+      "description": "Ingénierie Géospatiale et Technologie de l'Information",
+      "highlights": {
+        "emihack": "Participation Emihack 3.0",
+        "internship": "Stage de 6 mois chez Madatlas"
+      },
+      "skills": {
+        "geospatial": "Ingénierie Géospatiale",
+        "it": "Technologie de l'Information",
+        "programming": "Programmation"
+      }
+    },
+    "bachelor": {
+      "title": "Licence en Informatique",
+      "description": "Développement d'Application Internet et Intranet",
+      "skills": {
+        "javascript": "JavaScript",
+        "python": "Python",
+        "database": "Base de données"
+      }
+    }
+  },
+  "projects": {
+    "title": "Projets",
+    "subtitle": "Une sélection de mes travaux",
+    "viewDetails": "Voir les Détails",
+    "viewCode": "Voir le Code",
+    "liveDemo": "Démo en Direct",
+    "allProjects": "Tous les Projets",
+    "backToList": "Retour à la Liste",
+    "professional": "Professionnel",
+    "personal": "Personnel",
+    "viewAll": "Voir Tous",
+    "moreTags": "plus",
+    "hotelManagement": {
+      "title": "Hotel Management System",
+      "description": "Système complet de gestion hôtelière multi-sites avec landing page, interface admin et super-admin.",
+      "fullDescription": "Plateforme complète de gestion hôtelière composée de trois applications Angular 18 distinctes : (1) Landing page pour présenter la solution aux hôtels potentiels, (2) Interface admin permettant aux hôtels de personnaliser leur site (couleurs, menu, contact) et gérer leurs réservations, (3) Site public pour chaque hôtel avec système de réservation intégrant Stripe pour les paiements, (4) Super-admin pour gérer tous les hôtels utilisant la plateforme. Architecture modulaire avec variables dynamiques pour une personnalisation complète de chaque site hôtelier.",
+      "images": {
+        "hotel_home_page": "Page d'accueil du site de l'hôtel",
+        "booking_page": "Page de reservation de chambre",
+        "stripe_payment": "Interface de paiement avec Stripe",
+        "admin_login_page": "Page d'authentification admin"
+      }
+    },
+    "innovtLearning": {
+      "title": "InnovT Learning Hub",
+      "description": "Plateforme d'inscription en ligne aux formations proposées par InnovT Madagascar.",
+      "fullDescription": "Site web moderne permettant aux utilisateurs de s'inscrire facilement aux différentes formations proposées par InnovT Madagascar. Intégration de l'authentification Google pour une expérience utilisateur fluide et sécurisée. Interface responsive et intuitive développée avec React et Vite.",
+      "images": {
+        "home_page": "Page d'accueil avec catalogue de formations",
+        "formation_page": "Liste des formations avec plusieurs filtres",
+        "signin_form": "Système d'authentification via Google",
+        "formation_detail": "Page Détail d'une formation"
+      }
+    },
+    "qimpexxAgri": {
+      "title": "Qimpexx Agri - Suivi des Planteurs",
+      "description": "Application web de gestion et suivi des planteurs et des plantations pour Qimpexx Agri SARL.",
+      "fullDescription": "Conception et développement d'une application de suivi agricole permettant de gérer les planteurs, leurs terrains, les demandes de plants et le suivi de plantation. L'application intègre également un système de questionnaires de suivi, ainsi que l'importation de données Excel et l'export des informations en Excel/CSV/PDF. Réalisée durant un stage au sein de l'ESN ARATO Fianarantsoa.",
+      "images": {
+        "user_form": "Formulaire ajout/modification utilisateur",
+        "planter_filter": "Suivi des plantations et questionnaires",
+        "plantation_detail": "Détail de contrôle de plantation"
+      }
+    },
+    "portfolio": {
+      "title": "Portfolio Personnel",
+      "description": "Portfolio personnel moderne avec animations 3D et support multilingue.",
+      "fullDescription": "Portfolio professionnel présentant mes compétences et projets. Intègre Three.js pour des animations 3D immersives, i18n pour le support multilingue (français/anglais/malgache), et une interface élégante développée avec React TypeScript et Vite. Design responsive et animations fluides.",
+      "images": {
+        "photo-1467232004584-a241de8bcf5d": "Page d'accueil avec animation 3D",
+        "photo-1499951360447-b19be8fe80f5": "Section projets et compétences",
+        "photo-1432888498266-38ffec3eaf0a": "Interface multilingue avec i18n"
+      }
+    },
+    "facebookClone": {
+      "title": "Clone Page d'Accueil Facebook",
+      "description": "Reproduction de la page d'accueil Facebook en HTML, CSS et JavaScript vanilla.",
+      "fullDescription": "Projet personnel de reproduction de la page d'accueil de Facebook. Ce projet démontre une maîtrise des fondamentaux du développement web : HTML5 pour la structure, CSS3 pour le style et les animations, et JavaScript vanilla pour les interactions. Design responsive et attention aux détails.",
+      "images": {
+        "photo-1611162617474-5b21e879e113": "Interface de connexion Facebook",
+        "photo-1633356122544-f134324a6cee": "Design responsive et animations",
+        "photo-1432888498266-38ffec3eaf0a": "Interactions JavaScript"
+      }
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Vous avez une idée de projet ? Discutons-en ensemble",
+    "stayInTouch": "Restons en Contact",
+    "description": "Je suis toujours ouvert aux nouvelles opportunités et collaborations. N'hésitez pas à me contacter pour discuter de vos projets.",
+    "form": {
+      "name": "Nom",
+      "email": "Email",
+      "message": "Message",
+      "submit": "Envoyer le Message",
+      "sending": "Envoi en cours...",
+      "success": "Message envoyé avec succès !",
+      "error": "Erreur lors de l'envoi. Veuillez réessayer."
+    },
+    "info": {
+      "email": "Email",
+      "phone": "Téléphone",
+      "location": "Localisation",
+      "available": "Disponible pour les projets en freelance"
+    }
+  },
+  "footer": {
+    "copyright": "Tous droits réservés",
+    "followMe": "Suivez-moi sur les réseaux sociaux",
+    "bacToTop": "Retour en Haut",
+    "description": "Développeur Frontend passionné par la création d'interfaces utilisateur modernes, réactives et performantes avec React, TypeScript et les dernières technologies web.",
+    "builtWith": "Construit avec ❤️ et React + TypeScript"
+  },
+  "common": {
+    "language": "Langue",
+    "theme": "Thème",
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "success": "Succès"
+  }
+}
