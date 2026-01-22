@@ -1,5 +1,3 @@
-import ppc_1 from "../assets/images/ppc_1.png";
-
 export interface ProjectImage {
   url: string;
   description: string;
