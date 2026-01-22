@@ -80,6 +80,7 @@ export const ProfileImage: React.FC = () => {
           src="images/Profile_picture.png" 
           alt="Randrianantenaina Malalatiana Annie Christelle" 
           className="w-full h-full transform scale-110 object-cover"
+          loading="eager"
         />
       </div>
 
