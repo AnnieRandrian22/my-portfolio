@@ -9,6 +9,7 @@ const Projects = () => {
   const { t } = useTranslation();
   const sectionRef = useRef<HTMLElement>(null);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [selectedTranslatedProject, setSelectedTranslatedProject] = useState<any>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [activeTab, setActiveTab] = useState<
     "all" | "professional" | "personal"
@@ -63,11 +64,13 @@ const Projects = () => {
 
   const handleOpenModal = (project: Project) => {
     setSelectedProject(project);
+    setSelectedTranslatedProject(getTranslatedProject(project));
     setCurrentImageIndex(0);
   };
 
   const handleCloseModal = () => {
     setSelectedProject(null);
+    setSelectedTranslatedProject(null);
     setCurrentImageIndex(0);
   };
 
@@ -224,18 +227,18 @@ const Projects = () => {
       </div>
 
       {/* Modal avec carrousel */}
-      <FusionModal isOpen={!!selectedProject} onClose={handleCloseModal}>
-        {selectedProject && (
+      <FusionModal isOpen={!!selectedTranslatedProject} onClose={handleCloseModal}>
+        {selectedTranslatedProject && (
           <div className="flex flex-col h-full rounded-2xl max-h-[80vh]">
             {/* En-tête fixe */}
             <div className="shrink-0 pb-4 border-b border-color-border">
               <div className="flex items-start justify-between gap-4">
                 <div className="flex-1">
                   <h2 className="text-3xl font-bold text-color-primary mb-2">
-                    {selectedProject.titleKey}
+                    {selectedTranslatedProject.title}
                   </h2>
                   <div className="flex items-center gap-2">
-                    {selectedProject.type === "professional" ? (
+                    {selectedTranslatedProject.type === "professional" ? (
                       <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/10 text-blue-600 text-xs font-medium border border-blue-500/20">
                         <Briefcase className="w-3 h-3" />
                         Professionnel
@@ -254,20 +257,20 @@ const Projects = () => {
             {/* Contenu scrollable */}
             <div className="flex-1 min-h-0 overflow-y-auto scroll-thin space-y-6 py-4">
               <p className="text-color-text-primary leading-relaxed">
-                {selectedProject.fullDescriptionKey || selectedProject.descriptionKey}
+                {selectedTranslatedProject.fullDescription || selectedTranslatedProject.description}
               </p>
 
               {/* Carrousel d'images */}
               <div className="relative">
                 <div className="relative aspect-video bg-color-surface rounded-lg overflow-hidden">
                   <img
-                    src={selectedProject.images[currentImageIndex].url}
-                    alt={selectedProject.images[currentImageIndex].description}
+                    src={selectedTranslatedProject.images[currentImageIndex].url}
+                    alt={selectedTranslatedProject.images[currentImageIndex].description}
                     className="w-full h-full object-cover"
                   />
 
                   {/* Boutons de navigation */}
-                  {selectedProject.images.length > 1 && (
+                  {selectedTranslatedProject.images.length > 1 && (
                     <>
                       <button
                         onClick={prevImage}
@@ -286,7 +289,7 @@ const Projects = () => {
 
                   {/* Indicateurs */}
                   <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-                    {selectedProject.images.map((_, idx) => (
+                    {selectedTranslatedProject.images.map((_: any, idx: number) => (
                       <button
                         key={idx}
                         onClick={() => setCurrentImageIndex(idx)}
@@ -302,7 +305,7 @@ const Projects = () => {
 
                 {/* Description de l'image actuelle */}
                 <p className="mt-3 text-sm text-color-text-secondary text-center">
-                  {selectedProject.images[currentImageIndex].description}
+                  {selectedTranslatedProject.images[currentImageIndex].description}
                 </p>
               </div>
 
@@ -313,7 +316,7 @@ const Projects = () => {
                   Technologies utilisées
                 </h3>
                 <div className="flex flex-wrap gap-2">
-                  {selectedProject.tags.slice(0, 5).map((tag, idx) => (
+                  {selectedTranslatedProject.tags.slice(0, 5).map((tag: string, idx: number) => (
                     <span
                       key={idx}
                       className="px-3 py-1.5 text-xs font-medium rounded-full bg-color-primary-light/10 text-color-primary border border-color-primary/20 hover:bg-color-primary-light/20 transition-colors"
@@ -321,9 +324,9 @@ const Projects = () => {
                       {tag}
                     </span>
                   ))}
-                  {selectedProject.tags.length > 5 && (
+                  {selectedTranslatedProject.tags.length > 5 && (
                     <span className="px-3 py-1.5 text-xs font-medium rounded-full bg-color-surface text-color-text-secondary border border-color-border">
-                      +{selectedProject.tags.length - 5} more
+                      +{selectedTranslatedProject.tags.length - 5} more
                     </span>
                   )}
                 </div>
@@ -333,9 +336,9 @@ const Projects = () => {
             {/* Pied de page fixe */}
             <div className="shrink-0 pt-4 border-t border-color-border">
               <div className="flex gap-4">
-                {selectedProject.link && (
+                {selectedTranslatedProject.link && (
                   <a
-                    href={selectedProject.link}
+                    href={selectedTranslatedProject.link}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex-1 py-2 rounded-lg transition-colors bg-gradient-primary text-white text-center hover:opacity-90 font-medium"
@@ -343,9 +346,9 @@ const Projects = () => {
                     Voir le site
                   </a>
                 )}
-                {selectedProject.github && (
+                {selectedTranslatedProject.github && (
                   <a
-                    href={selectedProject.github}
+                    href={selectedTranslatedProject.github}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex-1 py-2 rounded-lg transition-colors bg-color-surface-elevated text-color-text-primary border border-color-primary text-center hover:bg-color-surface font-medium"
