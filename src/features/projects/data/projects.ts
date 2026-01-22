@@ -122,49 +122,41 @@ export const projects: Project[] = [
     fullDescriptionKey: "projects.portfolio.fullDescription",
     tags: ["React", "TypeScript", "Vite", "Three.js", "i18n", "Tailwind CSS", "CSS3"],
     image:
-      "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&q=80",
+      "images/my-portfolio/home_page.png",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&q=80",
-        description: "Page d'accueil avec animation 3D",
-      },
-      {
-        url: "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=800&q=80",
-        description: "Section projets et compétences",
-      },
-      {
-        url: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=800&q=80",
-        description: "Interface multilingue avec i18n",
-      },
+        url: "images/my-portfolio/home_page.png",
+        description: "Page d'accueil de mon portfolio",
+      }
     ],
     link: "#",
     github: "https://github.com/AnnieRandrian22/my-portfolio.git",
     type: "personal",
   },
-  {
-    id: "facebook-clone",
-    titleKey: "projects.facebookClone.title",
-    descriptionKey: "projects.facebookClone.description",
-    fullDescriptionKey: "projects.facebookClone.fullDescription",
-    tags: ["HTML5", "CSS3", "JavaScript", "Responsive Design", "Flexbox", "Grid"],
-    image:
-      "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80",
-    images: [
-      {
-        url: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80",
-        description: "Interface de connexion Facebook",
-      },
-      {
-        url: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&q=80",
-        description: "Design responsive et animations",
-      },
-      {
-        url: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=800&q=80",
-        description: "Interactions JavaScript",
-      },
-    ],
-    link: "#",
-    github: "#",
-    type: "personal",
-  },
+  // {
+  //   id: "facebook-clone",
+  //   titleKey: "projects.facebookClone.title",
+  //   descriptionKey: "projects.facebookClone.description",
+  //   fullDescriptionKey: "projects.facebookClone.fullDescription",
+  //   tags: ["HTML5", "CSS3", "JavaScript", "Responsive Design", "Flexbox", "Grid"],
+  //   image:
+  //     "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80",
+  //   images: [
+  //     {
+  //       url: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80",
+  //       description: "Interface de connexion Facebook",
+  //     },
+  //     {
+  //       url: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&q=80",
+  //       description: "Design responsive et animations",
+  //     },
+  //     {
+  //       url: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=800&q=80",
+  //       description: "Interactions JavaScript",
+  //     },
+  //   ],
+  //   link: "#",
+  //   github: "#",
+  //   type: "personal",
+  // },
 ];
