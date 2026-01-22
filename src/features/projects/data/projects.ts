@@ -138,7 +138,7 @@ export const projects: Project[] = [
       },
     ],
     link: "#",
-    github: "#",
+    github: "https://github.com/AnnieRandrian22/my-portfolio.git",
     type: "personal",
   },
   {
