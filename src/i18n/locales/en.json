@@ -17,7 +17,10 @@
       "React & Angular Developer"
     ],
     "subtitle": "Building exceptional digital experiences",
-    "cta": "Get In Touch"
+    "cta": {
+      "getInTouch": "Get In Touch",
+      "seeProject": "See My Projects"
+    } 
   },
   "skills": {
     "title": "Skills",

@@ -17,7 +17,10 @@
       "Développeur React & Angular"
     ],
     "subtitle": "Créer des expériences numériques exceptionnelles",
-    "cta": "Me Contacter"
+    "cta": {
+      "getInTouch": "Me Contacter",
+      "seeProject": "Voir Mes Projets"
+    } 
   },
   "skills": {
     "title": "Compétences",

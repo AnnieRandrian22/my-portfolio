@@ -319,7 +319,7 @@ export const Hero: React.FC = () => {
                   </svg>
                 }
               >
-                {t("hero.cta")}
+                {t("hero.cta.getInTouch")}
               </Button>
               <Button
                 variant="outline"
@@ -341,7 +341,8 @@ export const Hero: React.FC = () => {
                   </svg>
                 }
               >
-                Voir mes projets
+                {t("hero.cta.seeProject")}
+
               </Button>
             </div>
 
