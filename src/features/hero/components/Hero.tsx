@@ -350,7 +350,7 @@ export const Hero: React.FC = () => {
             <div className="grid grid-cols-3 gap-4 pt-8 max-w-md mx-auto lg:mx-0">
               <div className="text-center lg:text-left">
                 <div className="text-2xl sm:text-3xl font-bold text-gradient">
-                  5+
+                  3+
                 </div>
                 <div className="text-xs sm:text-sm text-text-secondary mt-1">
                   Années d'expérience
@@ -358,7 +358,7 @@ export const Hero: React.FC = () => {
               </div>
               <div className="text-center lg:text-left">
                 <div className="text-2xl sm:text-3xl font-bold text-gradient">
-                  50+
+                  10+
                 </div>
                 <div className="text-xs sm:text-sm text-text-secondary mt-1">
                   Projets réalisés
@@ -366,7 +366,7 @@ export const Hero: React.FC = () => {
               </div>
               <div className="text-center lg:text-left">
                 <div className="text-2xl sm:text-3xl font-bold text-gradient">
-                  30+
+                  10+
                 </div>
                 <div className="text-xs sm:text-sm text-text-secondary mt-1">
                   Clients satisfaits
