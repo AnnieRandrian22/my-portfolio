@@ -1,9 +1,68 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useMemo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { ProjectCard } from "./ProjectCard";
 import FusionModal from "../../../shared/components/FusionModal";
 import { Briefcase, Heart, ChevronRight } from "lucide-react";
 import { projects, type Project } from "../data/projects";
+
+// Hook personnalisé pour précharger les images
+const useImagePreloader = () => {
+  const preloadedImages = useRef<Set<string>>(new Set());
+
+  const preloadImage = useCallback((src: string) => {
+    if (!preloadedImages.current.has(src)) {
+      const img = new Image();
+      img.src = src;
+      preloadedImages.current.add(src);
+    }
+  }, []);
+
+  const preloadProjectImages = useCallback((project: Project) => {
+    project.images.forEach(img => preloadImage(img.url));
+  }, [preloadImage]);
+
+  return { preloadProjectImages };
+};
+
+// Composant d'image optimisé avec lazy loading
+const OptimizedImage: React.FC<{
+  src: string;
+  alt: string;
+  className?: string;
+  onLoad?: () => void;
+}> = ({ src, alt, className, onLoad }) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [hasError, setHasError] = useState(false);
+
+  const handleLoad = useCallback(() => {
+    setIsLoaded(true);
+    onLoad?.();
+  }, [onLoad]);
+
+  const handleError = useCallback(() => {
+    setHasError(true);
+    setIsLoaded(true);
+  }, []);
+
+  return (
+    <div className={`relative ${className}`}>
+      {!isLoaded && !hasError && (
+        <div className="absolute inset-0 bg-color-surface animate-pulse rounded-lg" />
+      )}
+      <img
+        src={src}
+        alt={alt}
+        className={`w-full h-full object-cover transition-opacity duration-300 ${
+          isLoaded ? 'opacity-100' : 'opacity-0'
+        }`}
+        onLoad={handleLoad}
+        onError={handleError}
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+  );
+};
 
 const Projects = () => {
   const { t } = useTranslation();
@@ -15,21 +74,45 @@ const Projects = () => {
     "all" | "professional" | "personal"
   >("all");
 
-  const getTranslatedProject = (project: Project) => ({
-    ...project,
-    title: t(project.titleKey),
-    description: t(project.descriptionKey),
-    fullDescription: project.fullDescriptionKey ? t(project.fullDescriptionKey) : undefined,
-    images: project.images.map(img => ({
-      ...img,
-      description: t(`${project.titleKey.replace('.title', '')}.images.${img.url.split('/').pop()?.split('.')[0]}`)
-    }))
-  });
+  // Hook de préchargement d'images
+  const { preloadProjectImages } = useImagePreloader();
 
-  const filteredProjects =
+  // Détection d'appareil lent (Android avec peu de RAM)
+  const isLowEndDevice = useMemo(() => {
+    const connection = (navigator as any).connection;
+    const deviceMemory = (navigator as any).deviceMemory;
+
+    // Vérifier la connexion réseau lente ou la mémoire faible
+    const isSlowConnection = connection &&
+      (connection.effectiveType === 'slow-2g' ||
+       connection.effectiveType === '2g' ||
+       connection.downlink < 1.5);
+
+    const isLowMemory = deviceMemory && deviceMemory < 4;
+
+    return isSlowConnection || isLowMemory || /Android.*Chrome/.test(navigator.userAgent);
+  }, []);
+
+  // Mémoïser les traductions pour éviter les recalculs
+  const translatedProjects = useMemo(() => {
+    return projects.map(project => ({
+      ...project,
+      title: t(project.titleKey),
+      description: t(project.descriptionKey),
+      fullDescription: project.fullDescriptionKey ? t(project.fullDescriptionKey) : undefined,
+      images: project.images.map(img => ({
+        ...img,
+        description: t(`${project.titleKey.replace('.title', '')}.images.${img.url.split('/').pop()?.split('.')[0]}`)
+      }))
+    }));
+  }, [t]);
+
+  const filteredProjects = useMemo(() =>
     activeTab === "all"
-      ? projects.map(getTranslatedProject)
-      : projects.filter((p) => p.type === activeTab).map(getTranslatedProject);
+      ? translatedProjects
+      : translatedProjects.filter((p) => p.type === activeTab),
+    [translatedProjects, activeTab]
+  );
 
   // --- CORRECTION ICI ---
   useEffect(() => {
@@ -62,17 +145,20 @@ const Projects = () => {
     };
   }, [filteredProjects]); // <--- L'ajout de cette dépendance répare le filtre
 
-  const handleOpenModal = (project: Project) => {
+  const handleOpenModal = useCallback((project: Project) => {
     setSelectedProject(project);
-    setSelectedTranslatedProject(getTranslatedProject(project));
+    setSelectedTranslatedProject(translatedProjects.find(p => p.titleKey === project.titleKey));
     setCurrentImageIndex(0);
-  };
 
-  const handleCloseModal = () => {
+    // Précharger les images pour les ouvertures futures
+    setTimeout(() => preloadProjectImages(project), 100);
+  }, [translatedProjects, preloadProjectImages]);
+
+  const handleCloseModal = useCallback(() => {
     setSelectedProject(null);
     setSelectedTranslatedProject(null);
     setCurrentImageIndex(0);
-  };
+  }, []);
 
   const nextImage = () => {
     if (selectedProject) {
@@ -226,8 +312,13 @@ const Projects = () => {
         )}
       </div>
 
-      {/* Modal avec carrousel */}
-      <FusionModal isOpen={!!selectedTranslatedProject} onClose={handleCloseModal}>
+      {/* Modal avec carrousel optimisé pour mobile */}
+      <FusionModal
+        isOpen={!!selectedTranslatedProject}
+        onClose={handleCloseModal}
+        className={isLowEndDevice ? "max-w-sm" : ""}
+        reducedMotion={isLowEndDevice}
+      >
         {selectedTranslatedProject && (
           <div className="flex flex-col h-full rounded-2xl max-h-[80vh]">
             {/* En-tête fixe */}
@@ -260,13 +351,13 @@ const Projects = () => {
                 {selectedTranslatedProject.fullDescription || selectedTranslatedProject.description}
               </p>
 
-              {/* Carrousel d'images */}
+              {/* Carrousel d'images optimisé */}
               <div className="relative">
                 <div className="relative aspect-video bg-color-surface rounded-lg overflow-hidden">
-                  <img
+                  <OptimizedImage
                     src={selectedTranslatedProject.images[currentImageIndex].url}
                     alt={selectedTranslatedProject.images[currentImageIndex].description}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full"
                   />
 
                   {/* Boutons de navigation */}

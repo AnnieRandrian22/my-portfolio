@@ -8,6 +8,7 @@ interface FusionModalProps {
   onClose: () => void;
   children: React.ReactNode;
   className?: string;
+  reducedMotion?: boolean;
 }
 
 const FusionModal: React.FC<FusionModalProps> = ({
@@ -15,6 +16,7 @@ const FusionModal: React.FC<FusionModalProps> = ({
   onClose,
   children,
   className,
+  reducedMotion = false,
 }) => {
   const shards = [
     {
@@ -56,8 +58,11 @@ const FusionModal: React.FC<FusionModalProps> = ({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            transition={{ duration: reducedMotion ? 0.2 : 0.3 }}
             onClick={onClose}
-            className="fixed inset-0 bg-black/80 backdrop-blur-sm cursor-pointer"
+            className={`fixed inset-0 bg-black/80 cursor-pointer ${
+              reducedMotion ? '' : 'backdrop-blur-sm'
+            }`}
           />
 
           {/* Conteneur Principal */}
@@ -67,22 +72,26 @@ const FusionModal: React.FC<FusionModalProps> = ({
               className
             )}
           >
-            {/* 1. LUMIÈRE D'AMBIANCE */}
-            <motion.div
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: [0, 1.5, 1], opacity: [0, 1, 0.5] }}
-              exit={{ scale: 0, opacity: 0 }}
-              transition={{ duration: 0.5 }}
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 w-2/3 h-2/3 rounded-full bg-primary blur-[80px] pointer-events-none opacity-40"
-            />
+            {/* 1. LUMIÈRE D'AMBIANCE - Simplifiée pour appareils lents */}
+            {!reducedMotion && (
+              <motion.div
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{ scale: [0, 1.5, 1], opacity: [0, 1, 0.5] }}
+                exit={{ scale: 0, opacity: 0 }}
+                transition={{ duration: 0.5 }}
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 w-2/3 h-2/3 rounded-full bg-primary blur-[80px] pointer-events-none opacity-40"
+              />
+            )}
 
-            {/* 2. FLASH D'IMPACT */}
-            <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: [0, 2, 0] }}
-              transition={{ duration: 1.6 }}
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-4 h-4 bg-white rounded-full shadow-[0_0_50px_20px_var(--color-glow)] pointer-events-none"
-            />
+            {/* 2. FLASH D'IMPACT - Désactivé pour appareils lents */}
+            {!reducedMotion && (
+              <motion.div
+                initial={{ scale: 0 }}
+                animate={{ scale: [0, 2, 0] }}
+                transition={{ duration: 1.6 }}
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-4 h-4 bg-white rounded-full shadow-[0_0_50px_20px_var(--color-glow)] pointer-events-none"
+              />
+            )}
 
             {/* 3. LES 4 BLOCS (SHARDS) + OMBRE CORRECTIVE */}
             <div className="absolute inset-0 z-10 w-full h-full pointer-events-none">
@@ -96,10 +105,18 @@ const FusionModal: React.FC<FusionModalProps> = ({
               {shards.map((shard) => (
                 <motion.div
                   key={shard.id}
-                  initial={shard.initial}
-                  animate={{ x: 0, y: 0, rotate: 0, opacity: 1, scale: 1 }}
-                  exit={{ ...shard.initial, transition: { duration: 1.5 } }}
-                  transition={{
+                  initial={reducedMotion ? { opacity: 0 } : shard.initial}
+                  animate={reducedMotion ?
+                    { opacity: 1 } :
+                    { x: 0, y: 0, rotate: 0, opacity: 1, scale: 1 }
+                  }
+                  exit={reducedMotion ?
+                    { opacity: 0, transition: { duration: 0.2 } } :
+                    { ...shard.initial, transition: { duration: 1.5 } }
+                  }
+                  transition={reducedMotion ? {
+                    duration: 0.2
+                  } : {
                     type: "spring",
                     stiffness: 40,
                     damping: 14,
@@ -114,10 +131,14 @@ const FusionModal: React.FC<FusionModalProps> = ({
 
             {/* 4. CONTENU DU MODAL */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, transition: { duration: 0.15 } }} // Accéléré un peu aussi
-              transition={{ delay: 1.6, duration: 0.4 }}
+              initial={reducedMotion ? { opacity: 0 } : { opacity: 0, scale: 0.9 }}
+              animate={reducedMotion ? { opacity: 1 } : { opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, transition: { duration: 0.15 } }}
+              transition={reducedMotion ? {
+                duration: 0.2
+              } : {
+                delay: 1.6, duration: 0.4
+              }}
               className="relative z-30 w-full p-8 text-text-primary flex flex-col"
             >
               <button
